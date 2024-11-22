@@ -1,9 +1,23 @@
-import example.pepita
+import example.*
 
-describe "group of tests for pepita" {
+describe "Test de Emociones" {
 
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
-  }
+    test "un grupo de personas viven un mismo evento" {
+ // Preparación
+    var persona1 = new Persona(edad=14)
+    var persona2 = new Persona(edad=16)
+    var ansiedad1 = new Ansiedad(intensidad=100,nivelDeEstres=100)
+    var ansiedad2 = new Ansiedad(intensidad=20,nivelDeEstres=0)//el si estudio, por eso no esta estresado
+    var grupo = [persona1, persona2]
+    var parcial = new Evento(impacto= 10, descripcion= "Parcial de Objetos")
+// Ejercitación
+    persona1.agregarEmocion(ansiedad1)
+    persona2.agregarEmocion(ansiedad2)
+    persona1.vivirEventoEnGrupo(grupo,parcial)
+//assert
+    assert.equals(ansiedad1.intensidad(),90)
+    assert.equals(ansiedad2.intensidad(),20)
+    assert.that(persona1.esAdolescente())
 
-}
+    }
+}//se vive el evento en grupo correctamente ya que la intensidad de la persona1 bajo por liberarse, mientras que la intensidad de la persona 2 sigue igual ya que no se libero(porque estudio)
