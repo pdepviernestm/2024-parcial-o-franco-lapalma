@@ -101,7 +101,7 @@ override method puedeLiberarse()=liberacionAux.puedeLiberarse(self,nivelDeEstres
     }
 }
 
-//implementado para no repetir return super() && condicionDeEmocion
+//implemento la funcion liberacionAux para no repetir return super() && condicionDeEmocion cada vez que tengo que hacer un overrite en liberarEmocion
 object liberacionAux {
     method puedeLiberarse(emocion, condicionAdicional) {
         return emocion.intensidad() >= emocion.intensidadElevada() && condicionAdicional
